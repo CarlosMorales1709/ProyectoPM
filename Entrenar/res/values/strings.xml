@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Entrenar</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_decidir">Decidir</string>
+    <string name="title_activity_mostrar_repes">Mostrar_repes</string>
+    <string name="title_activity_mostrarserie">Mostrarserie</string>
+    <string name="title_activity_porcentaje_repeticiones">Porcentaje_repeticiones</string>
+    <string name="title_activity_repeticiones">Repeticiones</string>
+    <string name="title_activity_rm">RM</string>
+    <string name="title_activity_rm2">RM2</string>
+    <string name="title_activity_series">Series</string>
+    <string name="title_activity_sesion">Sesion</string>
+
+</resources>

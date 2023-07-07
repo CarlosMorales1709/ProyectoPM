@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.entrenar"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.entrenar.Portada"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.entrenar.Decidir"
+            android:label="@string/title_activity_decidir" >
+        </activity>
+        <activity
+            android:name="com.example.entrenar.Mostrar_repes"
+            android:label="@string/title_activity_mostrar_repes" >
+        </activity>
+        <activity
+            android:name="com.example.entrenar.Mostrarserie"
+            android:label="@string/title_activity_mostrarserie" >
+        </activity>
+        <activity
+            android:name="com.example.entrenar.Porcentaje_repeticiones"
+            android:label="@string/title_activity_porcentaje_repeticiones" >
+        </activity>
+        <activity
+            android:name="com.example.entrenar.Repeticiones"
+            android:label="@string/title_activity_repeticiones" >
+        </activity>
+        <activity
+            android:name="com.example.entrenar.RM"
+            android:label="@string/title_activity_rm" >
+        </activity>
+        <activity
+            android:name="com.example.entrenar.RM2"
+            android:label="@string/title_activity_rm2" >
+        </activity>
+        <activity
+            android:name="com.example.entrenar.Series"
+            android:label="@string/title_activity_series" >
+        </activity>
+        <activity
+            android:name="com.example.entrenar.Sesion"
+            android:label="@string/title_activity_sesion" >
+        </activity>
+    </application>
+
+</manifest>
