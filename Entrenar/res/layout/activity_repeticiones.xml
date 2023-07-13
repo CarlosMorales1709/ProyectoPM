@@ -6,11 +6,105 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Repeticiones" >
+    tools:context=".Repeticiones">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/itemLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:background="@drawable/list_item_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selecciona las repeticiones" />
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="89dp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingresa en segundos las diferentes fases" />
+
+        <EditText
+            android:id="@+id/editTextSC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="19dp"
+            android:ems="10"
+            android:hint="Fase concéntrica"
+            android:inputType="numberDecimal">
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/editTextSE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Fase excéntrica"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/editTextSI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Fase isométrica"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selecciona el grupo muscular" />
+
+        <ListView
+            android:id="@+id/listViewRM"
+            android:layout_width="match_parent"
+            android:layout_height="86dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnInsertar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:onClick="insert"
+                android:padding="10dp"
+                android:text="Guardar"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btnActualizar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="siguiente4"
+                android:text="Mostrar datos"
+                android:background="@drawable/button_background"
+                android:textColor="#FFFFFF"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="8dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

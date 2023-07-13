@@ -58,6 +58,10 @@
             android:name="com.example.entrenar.Sesion"
             android:label="@string/title_activity_sesion" >
         </activity>
+        <activity
+            android:name="com.example.entrenar.Contador"
+            android:label="@string/title_activity_contador" >
+        </activity>
     </application>
 
 </manifest>

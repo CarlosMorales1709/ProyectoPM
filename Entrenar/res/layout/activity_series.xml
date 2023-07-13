@@ -1,16 +1,21 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Series" >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:paddingLeft="@dimen/activity_horizontal_margin" android:paddingTop="@dimen/activity_vertical_margin" android:paddingRight="@dimen/activity_horizontal_margin" android:paddingBottom="@dimen/activity_vertical_margin" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true">
+        <EditText android:id="@+id/editTextSeries" android:layout_width="300dp" android:layout_height="wrap_content" android:hint="Ingresa la cantidad de series" android:ems="10" android:inputType="numberDecimal"/>
+        <TextView android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Selecciona tu configuración de repeticiones"/>
+        <ListView android:id="@+id/listView1" android:layout_width="match_parent" android:layout_height="100dp"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <Spinner android:id="@+id/spinner1" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1"/>
+            <Button android:id="@+id/btnBorrar2" android:layout_width="89dp" android:layout_height="wrap_content" android:text="Buscar" android:onClick="buscarPorGrupoMuscular"/>
+        </LinearLayout>
+        <TextView android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ingresa el tiempo de descanso en minutos y segundos"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <NumberPicker android:id="@+id/minutesPicker" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <NumberPicker android:id="@+id/secondsPicker" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <Button android:id="@+id/buscarPorGrupoMuscular" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Registrar" android:onClick="registrarDatos"/>
+            <Button android:id="@+id/button2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Escoger series" android:onClick="siguiente5"/>
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>

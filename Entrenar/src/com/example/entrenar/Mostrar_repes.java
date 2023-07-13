@@ -89,18 +89,17 @@ public class Mostrar_repes extends Activity {
         AdminSQLiteOpenHelpener administrador = new AdminSQLiteOpenHelpener(this, "administracion", null, 1);
         SQLiteDatabase bd = administrador.getReadableDatabase();
 
-        String query = "SELECT repeticiones.s_e, repeticiones.s_c, repeticiones.s_i, porcentajes.repes, rm.grupo_muscular, repeticiones.kilos, repeticiones.id FROM repeticiones " +
+        String query = "SELECT repeticiones.s_e, repeticiones.s_c, repeticiones.s_i, porcentajes.repes, rm.grupo_muscular, repeticiones.kilos, repeticiones.id, porcentajes.porcentaje, rm.rm FROM repeticiones " +
                 "INNER JOIN porcentajes ON repeticiones.porcentaje_id = porcentajes.id " +
                 "INNER JOIN rm ON repeticiones.rm_id = rm.id";
 
-if (filtroGrupoMuscular != null && !filtroGrupoMuscular.isEmpty() && !filtroGrupoMuscular.equals("Mostrar todo")) {
-    query += " WHERE rm.grupo_muscular LIKE '%" + filtroGrupoMuscular + "%'";
-}
+        if (filtroGrupoMuscular != null && !filtroGrupoMuscular.isEmpty() && !filtroGrupoMuscular.equals("Mostrar todo")) {
+            query += " WHERE rm.grupo_muscular LIKE '%" + filtroGrupoMuscular + "%'";
+        }
 
-query += " ORDER BY rm.grupo_muscular ASC, porcentajes.repes ASC"; // Ordenar por grupo_muscular y luego por repeticiones
+        query += " ORDER BY rm.grupo_muscular ASC, porcentajes.repes ASC"; // Ordenar por grupo_muscular y luego por repeticiones
 
-Cursor fila = bd.rawQuery(query, null);
-
+        Cursor fila = bd.rawQuery(query, null);
 
         if (fila.moveToFirst()) {
             registrosList = new ArrayList<String>();
@@ -112,22 +111,19 @@ Cursor fila = bd.rawQuery(query, null);
                 double s_i = fila.getDouble(2);
                 int numRepeticiones = fila.getInt(3);
                 String grupoMuscular = fila.getString(4);
-                double kilos = fila.getDouble(5);
+                double porcentaje = fila.getDouble(7);
+                double rm = fila.getDouble(8);
+                double kilos = rm * porcentaje;
                 int registroID = fila.getInt(6);
-
-                String registro = "SE: " + s_e + ", SC: " + s_c + ", SI: " + s_i + ", Repeticiones: " + numRepeticiones + ", Musculo: " + grupoMuscular + ", Kilos: " + kilos;
-                registrosList.add(registro);
-                registrosIDs.add(registroID);
-                double porcentaje = fila.getDouble(3);
-                double rm = fila.getDouble(6);
-                kilos = porcentaje * rm;
 
                 // Actualizar el campo "kilos" en la tabla "repeticiones"
                 ContentValues valores = new ContentValues();
                 valores.put("kilos", kilos);
                 bd.update("repeticiones", valores, "id = ?", new String[]{String.valueOf(registroID)});
 
-
+                String registro = "SE: " + s_e + ", SC: " + s_c + ", SI: " + s_i + ", Repeticiones: " + numRepeticiones + ", Musculo: " + grupoMuscular + ", Kilos: " + kilos;
+                registrosList.add(registro);
+                registrosIDs.add(registroID);
             } while (fila.moveToNext());
 
             adapter = new CustomAdapter(this, registrosList, registrosIDs);
@@ -248,11 +244,7 @@ Cursor fila = bd.rawQuery(query, null);
         }
     }
 
-
-
-   
-
-    public void siguiente4(View view){
+    public void siguiente4(View view) {
         Intent form = new Intent(this, RM.class);
         startActivity(form);
     }

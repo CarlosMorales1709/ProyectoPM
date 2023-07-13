@@ -5,5 +5,24 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry kind="lib" path="C:/Users/Alan Eduardo S L/Downloads/jar_files/ecj-3.34.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alan Eduardo S L/Downloads/jar_files/org.eclipse.core.commands-3.11.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alan Eduardo S L/Downloads/jar_files/org.eclipse.core.contenttype-3.9.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alan Eduardo S L/Downloads/jar_files/org.eclipse.core.expressions-3.9.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alan Eduardo S L/Downloads/jar_files/org.eclipse.core.filesystem-1.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alan Eduardo S L/Downloads/jar_files/org.eclipse.core.jobs-3.14.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alan Eduardo S L/Downloads/jar_files/org.eclipse.core.resources-3.19.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alan Eduardo S L/Downloads/jar_files/org.eclipse.core.runtime-3.27.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alan Eduardo S L/Downloads/jar_files/org.eclipse.equinox.app-1.6.200.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alan Eduardo S L/Downloads/jar_files/org.eclipse.equinox.common-3.18.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alan Eduardo S L/Downloads/jar_files/org.eclipse.equinox.preferences-3.10.200.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alan Eduardo S L/Downloads/jar_files/org.eclipse.equinox.registry-3.11.200.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alan Eduardo S L/Downloads/jar_files/org.eclipse.jdt.core-3.34.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alan Eduardo S L/Downloads/jar_files/org.eclipse.osgi-3.18.400.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alan Eduardo S L/Downloads/jar_files/org.eclipse.text-3.13.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alan Eduardo S L/Downloads/jar_files/org.osgi.service.prefs-1.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alan Eduardo S L/Downloads/jar_files/osgi.annotation-8.0.1.jar"/>
+	<classpathentry kind="lib" path="org.eclipse.jdt.annotation_1.0.1.v20130111-135246.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

@@ -13,5 +13,8 @@
     <string name="title_activity_rm2">RM2</string>
     <string name="title_activity_series">Series</string>
     <string name="title_activity_sesion">Sesion</string>
+    <string name="delete_button">Texto para el botón de borrar</string>
+    <string name="drag_here_to_delete">Arrastra aquí para eliminar</string>
+    <string name="title_activity_contador">Contador</string>
 
 </resources>

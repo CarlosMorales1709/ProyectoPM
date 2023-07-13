@@ -1,16 +1,22 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Mostrar_repes" >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:paddingLeft="@dimen/activity_horizontal_margin" android:paddingTop="@dimen/activity_vertical_margin" android:paddingRight="@dimen/activity_horizontal_margin" android:paddingBottom="@dimen/activity_vertical_margin" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentTop="true">
+        <TextView android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Estos campos son sólo para actualizar datos"/>
+        <EditText android:id="@+id/sew" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Fase excéntrica" android:ems="10" android:inputType="numberDecimal">
+            <requestFocus/>
+        </EditText>
+        <EditText android:id="@+id/siw" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Fase isométrica" android:ems="10" android:inputType="numberDecimal"/>
+        <EditText android:id="@+id/scw" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Fase concéntrica" android:ems="10" android:inputType="numberDecimal"/>
+        <ListView android:id="@+id/listView" android:layout_width="300dp" android:layout_height="138dp"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <Spinner android:id="@+id/spinnerGrupoMuscular" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1"/>
+            <Button android:textColor="#ffffff" android:id="@+id/buscarPorGrupoMuscular" android:background="@drawable/button_background" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5dp" android:text="Buscar" android:onClick="buscarPorGrupoMuscular"/>
+        </LinearLayout>
+        <LinearLayout android:layout_gravity="center_vertical" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+            <Button android:textColor="#ffffff" android:id="@+id/button3" android:background="@drawable/button_background" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5dp" android:text="Borrar" android:onClick="borrarRegistro"/>
+            <Button android:textColor="#ffffff" android:id="@+id/btnActualizar" android:background="@drawable/button_background" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5dp" android:text="Actualizar" android:onClick="Actualizar"/>
+            <Button android:textColor="#ffffff" android:id="@+id/btnAlta224" android:background="@drawable/button_background" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5dp" android:text="Volver" android:onClick="siguiente4"/>
+        </LinearLayout>
+        <Button android:textColor="#ffffff" android:id="@+id/btnAlta221" android:background="@drawable/button_background" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5dp" android:hint="Este boton es para actualizar" android:onClick="actualizarRegistro"/>
+    </LinearLayout>
 </RelativeLayout>
