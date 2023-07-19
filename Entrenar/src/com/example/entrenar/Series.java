@@ -42,6 +42,8 @@ public class Series extends Activity {
     private NumberPicker secondsPicker;
     private static final int MAX_AVISO = 2;
     private int contadorAviso = 0;
+    private SQLiteDatabase database;
+    private String tablaSeleccionada; // Variable para almacenar el nombre de la tabla seleccionada
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,40 +55,39 @@ public class Series extends Activity {
             contadorAviso++;
         }
         
+
         spinnerGrupoMuscular = findViewById(R.id.spinner1);
         editTextSeries = findViewById(R.id.editTextSeries);
         minutesPicker = findViewById(R.id.minutesPicker);
         secondsPicker = findViewById(R.id.secondsPicker);
-        
-     // Configurar el rango de valores para los NumberPicker
+
+        // Configurar el rango de valores para los NumberPicker
         minutesPicker.setMinValue(0);
         minutesPicker.setMaxValue(59);
 
         secondsPicker.setMinValue(0);
         secondsPicker.setMaxValue(59);
+
         // Cargar los grupos musculares en el Spinner
         cargarGruposMusculares();
 
+        tablaSeleccionada = getIntent().getStringExtra("tablaSeleccionada");
+
+     // Obtener la referencia de la base de datos de administración
+        AdminSQLiteOpenHelpener dbHelper = new AdminSQLiteOpenHelpener(this, "administracion.db", null, 1);
+        database = dbHelper.getWritableDatabase();
+        
         // Resto del código...
         Consulta(null);
     }
 
+
     private void mostrarAviso() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Texto de advertencia");
-        builder.setMessage("La primer serie que guardes sera la primera en comenzar y asi sucesivamente");
-
-        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Acciones a realizar al hacer clic en Aceptar
-            }
-        });
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        // ...
+        // Tu implementación de mostrarAviso()
+        // ...
     }
-    
+
     public void cargarGruposMusculares() {
         AdminSQLiteOpenHelpener administrador = new AdminSQLiteOpenHelpener(this, "administracion", null, 1);
         SQLiteDatabase bd = administrador.getReadableDatabase();
@@ -195,18 +196,26 @@ public class Series extends Activity {
         values.put("segundos", segundos);
         values.put("repeticion_id", registroSeleccionadoID);
 
-        long resultado = bd.insert("series", null, values);
 
-        if (resultado == -1) {
+        try {
+        	long resultado = database.insert(tablaSeleccionada, null, values);
+
+            if (resultado == -1) {
+                // Error al insertar los datos en la tabla
+                Toast.makeText(this, "Error al registrar los datos en la tabla " + tablaSeleccionada, Toast.LENGTH_SHORT).show();
+            } else {
+                // Inserción exitosa
+                Toast.makeText(this, "Datos registrados correctamente en la tabla " + tablaSeleccionada, Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
             // Error al insertar los datos en la tabla
-            Toast.makeText(this, "Error al registrar los datos en la tabla series", Toast.LENGTH_SHORT).show();
-        } else {
-            // Inserción exitosa
-            Toast.makeText(this, "Datos registrados correctamente", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error al registrar los datos en la tabla " + tablaSeleccionada, Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
         }
 
         bd.close();
     }
+
 
     private static class CustomAdapter extends ArrayAdapter<String> {
         private Context context;
@@ -226,7 +235,7 @@ public class Series extends Activity {
         }
 
         @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        public View getView(int position, View convertView, ViewGroup parent) {
             View view = convertView;
 
             if (view == null) {
@@ -250,8 +259,12 @@ public class Series extends Activity {
             return view;
         }
     }
-    public void siguiente5(View view){
-    	Intent form = new Intent(this, Mostrarserie.class);
-    	startActivity(form);
+
+    public void siguiente5(View view) {
+    	finish();
+    }
+
+    public void setTablaSeleccionada(String tablaSeleccionada) {
+        this.tablaSeleccionada = tablaSeleccionada;
     }
 }

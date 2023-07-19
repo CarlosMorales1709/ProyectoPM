@@ -11,9 +11,13 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int azul=0x7f040003;
         public static final int black_overlay=0x7f040002;
+        public static final int default_color=0x7f040006;
         public static final int green=0x7f040001;
         public static final int green_light=0x7f040000;
+        public static final int pressed_color=0x7f040004;
+        public static final int selected_color=0x7f040005;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -32,50 +36,59 @@ public final class R {
         public static final int list_item_background=0x7f020003;
         public static final int list_item_background_selected=0x7f020004;
         public static final int list_item_selector=0x7f020005;
+        public static final int listview_item_selector=0x7f020006;
     }
     public static final class id {
-        public static final int action_settings=0x7f090029;
-        public static final int actualizar=0x7f090021;
-        public static final int botonsillo=0x7f090016;
-        public static final int btnActualizar=0x7f09000c;
-        public static final int btnAlta2=0x7f090015;
-        public static final int btnAlta221=0x7f09000e;
-        public static final int btnAlta224=0x7f09000d;
-        public static final int btnBorrar=0x7f090020;
-        public static final int btnBorrar2=0x7f090010;
-        public static final int btnInsertar=0x7f09001d;
-        public static final int buscarPorGrupoMuscular=0x7f09000a;
-        public static final int button2=0x7f090011;
-        public static final int button3=0x7f09000b;
-        public static final int concentricView=0x7f090002;
-        public static final int eccentricView=0x7f090001;
-        public static final int editTextSC=0x7f090018;
-        public static final int editTextSE=0x7f090019;
-        public static final int editTextSI=0x7f09001a;
-        public static final int editTextSeries=0x7f090022;
-        public static final int grupo_muscular=0x7f09001e;
-        public static final int isometricView=0x7f090003;
-        public static final int itemLayout=0x7f090012;
-        public static final int listView=0x7f090008;
-        public static final int listView1=0x7f09000f;
-        public static final int listViewRM=0x7f09001c;
-        public static final int mainLayout=0x7f090000;
-        public static final int minutesPicker=0x7f090024;
-        public static final int porcentaje=0x7f090013;
-        public static final int repes=0x7f090014;
-        public static final int rm=0x7f09001f;
-        public static final int scw=0x7f090007;
-        public static final int secondsPicker=0x7f090025;
-        public static final int sew=0x7f090005;
-        public static final int siw=0x7f090006;
-        public static final int spinner1=0x7f090023;
-        public static final int spinnerGrupoMuscular=0x7f090009;
-        public static final int text1=0x7f090026;
-        public static final int textView1=0x7f090004;
-        public static final int textView2=0x7f09001b;
-        public static final int textView3=0x7f090017;
-        public static final int textViewGroupMuscular=0x7f090027;
-        public static final int textViewRM=0x7f090028;
+        public static final int action_settings=0x7f090031;
+        public static final int actualizar=0x7f090024;
+        public static final int borrarSerieButton=0x7f09002b;
+        public static final int botonsillo=0x7f090019;
+        public static final int btnActualizar=0x7f09000f;
+        public static final int btnAlta2=0x7f090018;
+        public static final int btnAlta221=0x7f090011;
+        public static final int btnAlta224=0x7f090010;
+        public static final int btnBorrar=0x7f090023;
+        public static final int btnBorrar2=0x7f090013;
+        public static final int btnInsertar=0x7f090020;
+        public static final int buscarPorGrupoMuscular=0x7f09000d;
+        public static final int button2=0x7f090014;
+        public static final int button3=0x7f09000e;
+        public static final int concentricaCheckBox=0x7f090001;
+        public static final int crearSesionButton=0x7f09002a;
+        public static final int editTextSC=0x7f09001b;
+        public static final int editTextSE=0x7f09001c;
+        public static final int editTextSI=0x7f09001d;
+        public static final int editTextSeries=0x7f090025;
+        public static final int excentricaCheckBox=0x7f090003;
+        public static final int grupo_muscular=0x7f090021;
+        public static final int irASeriesButton=0x7f09002d;
+        public static final int isometricaCheckBox=0x7f090005;
+        public static final int itemLayout=0x7f090015;
+        public static final int listView=0x7f09000b;
+        public static final int listView1=0x7f090012;
+        public static final int listViewRM=0x7f09001f;
+        public static final int minutesPicker=0x7f090027;
+        public static final int nombreSesionEditText=0x7f090029;
+        public static final int nombreTablaTextView=0x7f09002c;
+        public static final int numeroConcentricaTextView=0x7f090002;
+        public static final int numeroExcentricaTextView=0x7f090004;
+        public static final int numeroIsometricaTextView=0x7f090006;
+        public static final int ordenButton=0x7f090007;
+        public static final int porcentaje=0x7f090016;
+        public static final int repes=0x7f090017;
+        public static final int rm=0x7f090022;
+        public static final int scw=0x7f09000a;
+        public static final int secondsPicker=0x7f090028;
+        public static final int sew=0x7f090008;
+        public static final int siw=0x7f090009;
+        public static final int spinner1=0x7f090026;
+        public static final int spinnerGrupoMuscular=0x7f09000c;
+        public static final int text1=0x7f09002e;
+        public static final int textView1=0x7f090000;
+        public static final int textView2=0x7f09001e;
+        public static final int textView3=0x7f09001a;
+        public static final int textViewGroupMuscular=0x7f09002f;
+        public static final int textViewRM=0x7f090030;
     }
     public static final class layout {
         public static final int activity_contador=0x7f030000;
@@ -89,10 +102,13 @@ public final class R {
         public static final int activity_rm2=0x7f030008;
         public static final int activity_series=0x7f030009;
         public static final int activity_sesion=0x7f03000a;
-        public static final int layout_list_item=0x7f03000b;
-        public static final int list_item=0x7f03000c;
-        public static final int list_item_checked=0x7f03000d;
-        public static final int listitem_fase=0x7f03000e;
+        public static final int activity_tabla_detalle=0x7f03000b;
+        public static final int layout_list_item=0x7f03000c;
+        public static final int list_item=0x7f03000d;
+        public static final int list_item_checked=0x7f03000e;
+        public static final int listitem_fase=0x7f03000f;
+        public static final int listview_item_selector=0x7f030010;
+        public static final int simple_list_item_1=0x7f030011;
     }
     public static final class menu {
         public static final int contador=0x7f080000;
@@ -106,9 +122,12 @@ public final class R {
         public static final int rm2=0x7f080008;
         public static final int series=0x7f080009;
         public static final int sesion=0x7f08000a;
+        public static final int sesiones=0x7f08000b;
+        public static final int tabla_detalle=0x7f08000c;
     }
     public static final class string {
         public static final int action_settings=0x7f060001;
+        public static final int activity_series=0x7f060011;
         public static final int app_name=0x7f060000;
         public static final int delete_button=0x7f06000c;
         public static final int drag_here_to_delete=0x7f06000d;
@@ -123,6 +142,8 @@ public final class R {
         public static final int title_activity_rm2=0x7f060009;
         public static final int title_activity_series=0x7f06000a;
         public static final int title_activity_sesion=0x7f06000b;
+        public static final int title_activity_sesiones=0x7f06000f;
+        public static final int title_activity_tabla_detalle=0x7f060010;
     }
     public static final class style {
         /** 

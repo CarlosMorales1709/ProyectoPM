@@ -2,6 +2,7 @@ package com.example.entrenar;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
@@ -24,76 +25,93 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Decidir extends Activity {
 
-	private RelativeLayout mainLayout;
-    private View eccentricView;
-    private View concentricView;
-    private View isometricView;
+    private CheckBox concentricaCheckBox;
+    private CheckBox excentricaCheckBox;
+    private CheckBox isometricaCheckBox;
 
-    private float prevY;
+    private List<String> ordenFases;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_decidir);
 
-        mainLayout = findViewById(R.id.mainLayout);
-        eccentricView = findViewById(R.id.eccentricView);
-        concentricView = findViewById(R.id.concentricView);
-        isometricView = findViewById(R.id.isometricView);
+        concentricaCheckBox = findViewById(R.id.concentricaCheckBox);
+        excentricaCheckBox = findViewById(R.id.excentricaCheckBox);
+        isometricaCheckBox = findViewById(R.id.isometricaCheckBox);
 
-        eccentricView.setBackgroundColor(Color.RED);
-        concentricView.setBackgroundColor(Color.GREEN);
-        isometricView.setBackgroundColor(Color.BLUE);
+        Button ordenButton = findViewById(R.id.ordenButton);
 
-        eccentricView.setOnTouchListener(new View.OnTouchListener() {
+        ordenFases = new ArrayList<String>();
+
+        CompoundButton.OnCheckedChangeListener checkedChangeListener = new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                handleTouch(v, event);
-                return true;
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                String faseSeleccionada = getFaseSeleccionada(buttonView);
+                if (isChecked) {
+                    if (!ordenFases.contains(faseSeleccionada)) {
+                        ordenFases.add(faseSeleccionada);
+                        Toast.makeText(Decidir.this, "Fase seleccionada: " + faseSeleccionada, Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    ordenFases.remove(faseSeleccionada);
+                }
+                actualizarNumerosTextViews();
             }
-        });
+        };
 
-        concentricView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                handleTouch(v, event);
-                return true;
-            }
-        });
+        concentricaCheckBox.setOnCheckedChangeListener(checkedChangeListener);
+        excentricaCheckBox.setOnCheckedChangeListener(checkedChangeListener);
+        isometricaCheckBox.setOnCheckedChangeListener(checkedChangeListener);
 
-        isometricView.setOnTouchListener(new View.OnTouchListener() {
+        ordenButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                handleTouch(v, event);
-                return true;
+            public void onClick(View v) {
+                if (!ordenFases.isEmpty()) {
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(Decidir.this, android.R.layout.simple_list_item_1, ordenFases);
+                    ListView listView = findViewById(R.id.listView);
+                    listView.setAdapter(adapter);
+                } else {
+                    Toast.makeText(Decidir.this, "No se ha seleccionado ningún orden de fase.", Toast.LENGTH_SHORT).show();
+                }
+
+                concentricaCheckBox.setChecked(false);
+                excentricaCheckBox.setChecked(false);
+                isometricaCheckBox.setChecked(false);
+                ordenFases.clear();
             }
         });
     }
 
-    private void handleTouch(View view, MotionEvent event) {
-        float currY = event.getRawY();
-
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                prevY = currY;
-                break;
-
-            case MotionEvent.ACTION_MOVE:
-                float dy = currY - prevY;
-
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
-                layoutParams.topMargin += dy;
-                view.setLayoutParams(layoutParams);
-
-                prevY = currY;
-                break;
+    private String getFaseSeleccionada(CompoundButton checkBox) {
+        switch (checkBox.getId()) {
+            case R.id.concentricaCheckBox:
+                return "Fase Concéntrica";
+            case R.id.excentricaCheckBox:
+                return "Fase Excéntrica";
+            case R.id.isometricaCheckBox:
+                return "Fase Isométrica";
+            default:
+                return "";
         }
+    }
+
+    private void actualizarNumerosTextViews() {
+        TextView numeroConcentricaTextView = findViewById(R.id.numeroConcentricaTextView);
+        TextView numeroExcentricaTextView = findViewById(R.id.numeroExcentricaTextView);
+        TextView numeroIsometricaTextView = findViewById(R.id.numeroIsometricaTextView);
+
+        numeroConcentricaTextView.setText(ordenFases.contains("Fase Concéntrica") ? String.valueOf(ordenFases.indexOf("Fase Concéntrica") + 1) : "");
+        numeroExcentricaTextView.setText(ordenFases.contains("Fase Excéntrica") ? String.valueOf(ordenFases.indexOf("Fase Excéntrica") + 1) : "");
+        numeroIsometricaTextView.setText(ordenFases.contains("Fase Isométrica") ? String.valueOf(ordenFases.indexOf("Fase Isométrica") + 1) : "");
     }
 }

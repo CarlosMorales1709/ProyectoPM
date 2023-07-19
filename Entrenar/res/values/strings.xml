@@ -16,5 +16,8 @@
     <string name="delete_button">Texto para el botón de borrar</string>
     <string name="drag_here_to_delete">Arrastra aquí para eliminar</string>
     <string name="title_activity_contador">Contador</string>
-
+    <string name="title_activity_sesiones">Sesiones</string>
+    <string name="title_activity_tabla_detalle">TablaDetalleActivity</string>
+	<string name="activity_series">com.example.app.Series</string>
+    
 </resources>

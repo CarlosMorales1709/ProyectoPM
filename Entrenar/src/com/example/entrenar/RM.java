@@ -31,7 +31,7 @@ public class RM extends Activity {
     }
     
     public void siguiente4(View view){
-    	Intent form = new Intent(this, Series.class);
+    	Intent form = new Intent(this, Sesion.class);
     	startActivity(form);
     }
     
